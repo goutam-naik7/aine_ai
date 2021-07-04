@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import HeaderComponent from "./Components/Header/HeaderComponent.js";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+import BodyContainer from "./Components/BodyComponent/BodyContainer.js";
+import "./App.css";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: "Raleway, Arial",
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <HeaderComponent />
+        <BodyContainer />
+      </div>
+    </ThemeProvider>
   );
 }
 
